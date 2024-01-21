@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cyan: #2bd0d0;
+  --light-cyan: #9ae3e3;
+  --darkviolet: #4b3f6b;
+  --red: #f46363;
+  --gray: #eff1f7;
+  --grayish-violet: #9e9aa8;
+  --very-dark-blue: #3a3054;
+  --very-dark-violet: #34313d;
+  --white: #ffffff;
+  --gray-font: #bfbfbf;
+  --very-dark-gray: #232127;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--cyan);
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.horizontal-padding {
+  padding-left: 8%;
+  padding-right: 8%;
+}

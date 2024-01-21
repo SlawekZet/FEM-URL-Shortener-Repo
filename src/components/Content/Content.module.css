@@ -1,0 +1,380 @@
+.content {
+  background-color: var(--gray);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 6em 8% 4em 8%;
+  align-items: center;
+}
+
+.shortenedLinkWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: var(--white);
+  border-radius: 5px;
+  font-size: 0.88rem;
+}
+
+.orgUrlWrapper {
+  max-width: 60%;
+}
+
+.orgUrl {
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.shortLinkWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 40%;
+  gap: 1em;
+  color: var(--cyan);
+}
+.shortenedLinkWrapper + .shortenedLinkWrapper {
+  margin-top: 1em;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 6em;
+  padding-top: 6.67em;
+  text-align: center;
+}
+
+.headerText {
+  font-size: 2.22rem;
+  padding-bottom: 0.45em;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.headerParagraph {
+  width: 65%;
+  color: var(--grayish-violet);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 177.778%;
+  letter-spacing: 0.123px;
+}
+
+.elementsWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.separator {
+  width: 80%;
+  height: 8px;
+  align-self: center;
+  background-color: var(--cyan);
+  position: absolute;
+  top: 45%;
+  z-index: 1;
+  border: none;
+}
+
+.elementMargin1 {
+  margin-top: 50px;
+}
+
+.elementMargin2 {
+  margin-top: 100px;
+}
+
+.elements {
+  display: flex;
+  z-index: 2;
+  gap: 2em;
+}
+
+.elementHeader {
+  color: var(--very-dark-violet);
+  font-size: 1.22em;
+  font-weight: 700;
+  padding-bottom: 0.667em;
+}
+
+.elementParagraph {
+  color: var(--grayish-violet);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 173.333%;
+}
+
+.ctaWrapper {
+  padding: 3em 0;
+  background: url("../../assets/bacgrounds/bg-boost-desktop.svg");
+  background-color: var(--very-dark-blue);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaText {
+  color: var(--white);
+  padding-bottom: 0.8em;
+}
+
+.buttonDelete {
+  border-radius: 5px;
+  width: 45px;
+  padding: 0.5em;
+}
+
+.buttonShortUrl {
+  border-radius: 5px;
+  width: 6.5em;
+  min-width: 100px;
+}
+
+.buttonShortUrl:active {
+  background-color: var(--light-cyan);
+}
+
+.copied {
+  background-color: var(--very-dark-blue);
+}
+
+.copied:hover {
+  background-color: var(--very-dark-blue);
+}
+
+.buttonCta {
+  font-size: 1.111rem;
+  padding: 0.5em 2em;
+  width: 10em;
+}
+
+@media only screen and (max-width: 1024px) {
+  .wrapper {
+    padding: 6em 8% 6.667em 8%;
+  }
+
+  .elements {
+    height: 440px;
+  }
+
+  .orgUrlWrapper {
+    width: 45%;
+  }
+
+  .shortenedLinkWrapper {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: var(--white);
+    border-radius: 5px;
+  }
+
+  .orgUrl {
+    max-width: 100%;
+  }
+
+  .shortLinkWrapper {
+    max-width: 55%;
+    gap: 1em;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 427px) {
+  .shortLinkWrapper {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    padding: 0.7em 1em;
+    text-align: center;
+  }
+
+  .shortenedLinkWrapper {
+    font-size: 1.11rem;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 1em;
+    background-color: var(--white);
+    border-radius: 5px;
+  }
+
+  .shortUrl {
+    width: 100%;
+    text-align: center;
+  }
+
+  .orgUrl {
+    font-size: 1.11rem;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    padding: 0.7em 1em;
+  }
+
+  .orgUrlWrapper {
+    max-width: 100%;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-font);
+    padding: 0;
+  }
+
+  .buttonShortUrl,
+  .buttonDelete {
+    border-radius: 5px;
+    width: 30%;
+    align-self: center;
+  }
+
+  .elements {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 2em;
+  }
+
+  .separator {
+    width: 8px;
+    height: 80%;
+    top: 0%;
+  }
+
+  .elementMargin1,
+  .elementMargin2 {
+    margin-top: 70px;
+  }
+
+  .elementHeader,
+  .elementParagraph {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .shortenedLinkWrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 1em;
+    background-color: var(--white);
+    border-radius: 5px;
+  }
+
+  .orgUrl {
+    font-size: 0.88em;
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    padding: 0.7em 1em;
+  }
+
+  .orgUrlWrapper {
+    max-width: 100%;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-font);
+    padding: 0;
+  }
+
+  .shortLinkWrapper {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+    font-size: 0.88em;
+    align-items: start;
+    gap: 1em;
+    padding: 0.7em 1em;
+  }
+
+  .buttonShortUrl,
+  .buttonDelete {
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .buttonDelete {
+    border-radius: 7px !important;
+    width: 100%;
+  }
+  .buttonDelete {
+    border-radius: 7px !important;
+  }
+
+  .header {
+    padding-top: 4em;
+  }
+
+  .headerText {
+    font-size: 1.55rem;
+    letter-spacing: -0.7px;
+  }
+
+  .headerParagraph {
+    width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .ctaWrapper {
+    padding: 5em 0;
+    background: url("../../assets/bacgrounds/bg-boost-mobile.svg");
+    background-color: var(--very-dark-blue);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .elements {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 2em;
+  }
+
+  .elementHeader,
+  .elementParagraph {
+    text-align: center;
+  }
+
+  .separator {
+    width: 8px;
+    height: 80%;
+    top: 0%;
+  }
+
+  .elementMargin1,
+  .elementMargin2 {
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .ctaWrapper {
+    padding: 4em 1em;
+    text-align: center;
+  }
+
+  .elementHeader,
+  .elementParagraph {
+    text-align: center;
+  }
+}

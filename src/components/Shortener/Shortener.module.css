@@ -1,0 +1,115 @@
+.wrapper {
+  position: relative;
+  height: 88.5px;
+}
+
+.shortener {
+  width: 100%;
+  background: url("../../assets/bacgrounds/bg-shorten-desktop.svg");
+  background-color: var(--very-dark-blue);
+  background-size: cover;
+  border-radius: 10px;
+  padding: 3em;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 84%;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.input {
+  width: 80%;
+  border-radius: 10px;
+  color: var(--very-dark-violet);
+  font-family: inherit;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 180%;
+  letter-spacing: 0.15px;
+  padding-left: 1em;
+  border: none;
+}
+
+.input::placeholder {
+  color: var(--grayish-violet);
+}
+
+.borderRed {
+  border: 2px solid var(--red);
+}
+
+.button {
+  min-width: 200px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  padding: 1em 2.2em;
+}
+
+.errorLoadingWrapper {
+  padding-top: 0.3em;
+  position: absolute;
+  top: 70%;
+}
+
+.errorMessage,
+.loadingMessage {
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 112.5%;
+  letter-spacing: 0.109px;
+}
+
+.errorMessage {
+  color: var(--red);
+}
+
+.loadingMessage {
+  color: var(--cyan);
+}
+
+@media only screen and (max-width: 426px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .shortener {
+    background: url("../../assets/bacgrounds/bg-shorten-mobile.svg");
+    background-color: var(--very-dark-blue);
+    background-size: cover;
+    padding: 1.33em;
+  }
+
+  .input {
+    width: 100%;
+    font-size: 0.88em;
+    line-height: 250%;
+    letter-spacing: 0.12px;
+    padding: 0.2em 1em;
+  }
+
+  .button {
+    min-width: 200px;
+    border-radius: 10px;
+    font-size: 0.88em;
+    padding: 0.71em 2.2em;
+    margin-top: 1.5em;
+  }
+
+  .errorLoadingWrapper {
+    padding-top: 0.3em;
+    position: relative;
+  }
+
+  .errorMessage,
+  .loadingMessage {
+    font-size: 0.66rem;
+  }
+}

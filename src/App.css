@@ -1,0 +1,28 @@
+.app-wrapper {
+  padding-top: 3%;
+  overflow: hidden;
+}
+
+.button-primary {
+  background-color: var(--cyan);
+  border: none;
+  border-radius: 28px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+  padding: 0.5em 1.33em;
+}
+
+.button-primary:hover {
+  background-color: var(--light-cyan);
+}
+
+.button-primary:active {
+  background-color: var(--very-dark-blue);
+}
+
+@media (min-width: 1441px) {
+  .app-wrapper {
+    overflow: visible;
+  }
+}
