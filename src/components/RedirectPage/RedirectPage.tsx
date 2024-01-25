@@ -11,7 +11,7 @@ export const RedirectPage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://render-shooort.onrender.com/get-org-urlshortenedUrlPath=${shortPath}`,
+          `https://render-shooort.onrender.com/get-org-url?shortenedUrlPath=${shortPath}`,
           {
             method: "GET",
             headers: {
