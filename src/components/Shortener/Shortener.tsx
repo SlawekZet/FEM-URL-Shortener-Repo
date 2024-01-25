@@ -32,10 +32,10 @@ export const Shortener = () => {
       );
       return true;
     } else if (
-      !originalUrl.includes("http://") &&
-      !originalUrl.includes("https://")
+      !originalUrl.startsWith("http://") &&
+      !originalUrl.startsWith("https://")
     ) {
-      setError("Please add a protocol http:// or https:// to your URL");
+      setError("Please start with a http:// or https:// protocol to your URL");
       return true;
     } else if (!urlRegex.test(originalUrl)) {
       setError("Please provide a correct URL");
