@@ -1,13 +1,17 @@
-import "./App.css";
-import { Content } from "./components/Content/Content";
-import { Footer } from "./components/Footer/Footer";
-import { Hero } from "./components/Hero/Hero";
-import { Navbar } from "./components/Navbar/Navbar";
-import { NotFound } from "./components/NotFound/NotFound";
-import { RedirectPage } from "./components/RedirectPage/RedirectPage";
-import { Shortener } from "./components/Shortener/Shortener";
-import { UrlShortenerProvider } from "./context/UrlShortenerContext";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './App.css';
+import { Benefits } from './components/Benefits/Benefits';
+import { Content } from './components/Content/Content';
+import { CtaSection } from './components/CtaSection/CtaSection';
+import { Footer } from './components/Footer/Footer';
+import { HeadingSection } from './components/HeadingSection/HeadingSection';
+import { Hero } from './components/Hero/Hero';
+import { Navbar } from './components/Navbar/Navbar';
+import { NotFound } from './components/NotFound/NotFound';
+import { RedirectPage } from './components/RedirectPage/RedirectPage';
+import { Shortener } from './components/Shortener/Shortener';
+import { UrlsList } from './components/UrlsList/UrlsList';
+import { UrlShortenerProvider } from './context/UrlShortenerContext';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
@@ -20,8 +24,13 @@ function App() {
               <Hero />
               <UrlShortenerProvider>
                 <Shortener />
-                <Content />
+                <Content>
+                  <UrlsList />
+                  <HeadingSection />
+                  <Benefits />
+                </Content>
               </UrlShortenerProvider>
+              <CtaSection />
               <Footer />
             </main>
           }
@@ -36,7 +45,3 @@ function App() {
 }
 
 export default App;
-
-// useNavigate() - przekieruje w obrębie routera
-// <Redirect> react-router (coś starego, prawdopodobnie not valid)
-// window.location.replace - sprawdź czy można wykorzystać tę funkcję do podmiany URLa w pzeglądarce na zasadzie - jeżeli znaleziono w db to przekieruj na stronę XXX, a jeżeli nie to na 404

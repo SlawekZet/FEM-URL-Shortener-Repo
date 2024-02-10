@@ -1,0 +1,107 @@
+.elementsWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.elements {
+  display: flex;
+  z-index: 2;
+  gap: 2em;
+}
+
+.elementHeader {
+  color: var(--very-dark-violet);
+  font-size: 1.22em;
+  font-weight: 700;
+  padding-bottom: 0.667em;
+}
+
+.elementParagraph {
+  color: var(--grayish-violet);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 173.333%;
+}
+
+.elementMargin1 {
+  margin-top: 50px;
+}
+
+.elementMargin2 {
+  margin-top: 100px;
+}
+
+.separator {
+  width: 80%;
+  height: 8px;
+  align-self: center;
+  background-color: var(--cyan);
+  position: absolute;
+  top: 45%;
+  z-index: 1;
+  border: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .elements {
+    height: 440px;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 427px) {
+  .separator {
+    width: 8px;
+    height: 80%;
+    top: 0%;
+  }
+
+  .elements {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 2em;
+  }
+
+  .elementHeader,
+  .elementParagraph {
+    text-align: center;
+  }
+
+  .elementMargin1,
+  .elementMargin2 {
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .separator {
+    width: 8px;
+    height: 80%;
+    top: 0%;
+  }
+
+  .elements {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 2em;
+  }
+
+  .elementHeader,
+  .elementParagraph {
+    text-align: center;
+  }
+
+  .elementMargin1,
+  .elementMargin2 {
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .elementHeader,
+  .elementParagraph {
+    text-align: center;
+  }
+}

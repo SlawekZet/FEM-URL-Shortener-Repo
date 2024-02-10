@@ -1,0 +1,182 @@
+.shortenedLinkWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: var(--white);
+  border-radius: 5px;
+  font-size: 0.88rem;
+}
+
+.orgUrlWrapper {
+  max-width: 60%;
+}
+
+.orgUrl {
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.shortLinkWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 40%;
+  gap: 1em;
+  color: var(--cyan);
+}
+.shortenedLinkWrapper + .shortenedLinkWrapper {
+  margin-top: 1em;
+}
+
+.buttonDelete {
+  border-radius: 5px;
+  width: 45px;
+  padding: 0.5em;
+}
+
+.buttonShortUrl {
+  border-radius: 5px;
+  width: 6.5em;
+  min-width: 100px;
+}
+
+.buttonShortUrl:active {
+  background-color: var(--light-cyan);
+}
+
+.copied {
+  background-color: var(--very-dark-blue);
+}
+
+.copied:hover {
+  background-color: var(--very-dark-blue);
+}
+
+@media only screen and (max-width: 1024px) {
+  .orgUrlWrapper {
+    width: 45%;
+  }
+
+  .shortenedLinkWrapper {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: var(--white);
+    border-radius: 5px;
+  }
+
+  .orgUrl {
+    max-width: 100%;
+  }
+
+  .shortLinkWrapper {
+    max-width: 55%;
+    gap: 1em;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 427px) {
+  .shortLinkWrapper {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    padding: 0.7em 1em;
+    text-align: center;
+  }
+
+  .shortenedLinkWrapper {
+    font-size: 1.11rem;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 1em;
+    background-color: var(--white);
+    border-radius: 5px;
+  }
+
+  .shortUrl {
+    width: 100%;
+    text-align: center;
+  }
+
+  .orgUrl {
+    font-size: 1.11rem;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    padding: 0.7em 1em;
+  }
+
+  .orgUrlWrapper {
+    max-width: 100%;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-font);
+    padding: 0;
+  }
+
+  .buttonShortUrl,
+  .buttonDelete {
+    border-radius: 5px;
+    width: 30%;
+    align-self: center;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .shortenedLinkWrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 1em;
+    background-color: var(--white);
+    border-radius: 5px;
+  }
+
+  .orgUrl {
+    font-size: 0.88em;
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    padding: 0.7em 1em;
+  }
+
+  .orgUrlWrapper {
+    max-width: 100%;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-font);
+    padding: 0;
+  }
+
+  .shortLinkWrapper {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+    font-size: 0.88em;
+    align-items: start;
+    gap: 1em;
+    padding: 0.7em 1em;
+  }
+
+  .buttonShortUrl,
+  .buttonDelete {
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .buttonDelete {
+    border-radius: 7px !important;
+    width: 100%;
+  }
+  .buttonDelete {
+    border-radius: 7px !important;
+  }
+}

@@ -1,0 +1,56 @@
+.ctaWrapper {
+  padding: 3em 0;
+  background: url('../../assets/bacgrounds/bg-boost-desktop.svg');
+  background-color: var(--very-dark-blue);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaText {
+  color: var(--white);
+  padding-bottom: 0.8em;
+}
+
+.headerText {
+  font-size: 2.22rem;
+  padding-bottom: 0.45em;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.buttonCta {
+  font-size: 1.111rem;
+  padding: 0.5em 2em;
+  width: 10em;
+}
+
+@media only screen and (max-width: 426px) {
+  .ctaWrapper {
+    padding: 5em 0;
+    background: url('../../assets/bacgrounds/bg-boost-mobile.svg');
+    background-color: var(--very-dark-blue);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headerText {
+    font-size: 1.55rem;
+    letter-spacing: -0.7px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .ctaWrapper {
+    padding: 4em 1em;
+    text-align: center;
+  }
+}

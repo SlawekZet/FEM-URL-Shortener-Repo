@@ -1,14 +1,14 @@
-import styles from "./ContentElement.module.css";
-import { ReactNode } from "react";
+import styles from './Benefit.module.css';
+import { ReactNode } from 'react';
 
-interface ContentElementProps {
+interface BenefitProps {
   children: ReactNode;
   img: string;
   altImg: string;
   className?: string;
 }
 
-export const ContentElement: React.FC<ContentElementProps> = ({
+export const Benefit: React.FC<BenefitProps> = ({
   children,
   img,
   altImg,
