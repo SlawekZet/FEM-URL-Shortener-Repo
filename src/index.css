@@ -23,14 +23,14 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
 }
 
 button {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 button:hover {

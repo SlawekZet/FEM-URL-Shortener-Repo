@@ -52,6 +52,7 @@
   font-size: 0.8333rem;
   font-weight: 700;
   padding: 1em;
+  text-align: center;
 }
 
 .button:hover {
@@ -68,6 +69,10 @@
   border: none;
   background-color: transparent;
   display: none;
+}
+
+a {
+  align-self: center;
 }
 
 @media only screen and (max-width: 426px) {

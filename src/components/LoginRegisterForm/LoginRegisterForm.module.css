@@ -1,0 +1,70 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  padding: 1em 0;
+}
+
+.form {
+  background-color: var(--darkviolet);
+  color: var(--white);
+  padding: 2em 2em 3em 2em;
+  border-radius: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-width: 300px;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+  width: 70%;
+}
+
+.input {
+  font-family: 'Poppins', sans-serif;
+  padding: 0.3em 0.3em 0.3em 0.7em;
+}
+
+.input,
+.button {
+  border: none;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.button {
+  padding: 0.3em;
+  width: 70%;
+  color: var(--white);
+  background-color: var(--cyan);
+}
+
+.signupLink {
+  font-size: 0.6rem;
+  padding-top: 1.5em;
+}
+
+@media only screen and (max-width: 427px) {
+  .inputWrapper {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .form {
+    padding: 2em 1em 3em 1em;
+  }
+}

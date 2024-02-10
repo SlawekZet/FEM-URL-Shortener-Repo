@@ -1,8 +1,8 @@
-import styles from "./Navbar.module.css";
-import { useState, useEffect } from "react";
-import { handlePlaceholderClick } from "../../utils/utils";
-import { Button } from "../Button/Button";
-import { Link } from "react-router-dom";
+import styles from './Navbar.module.css';
+import { useState, useEffect } from 'react';
+import { handlePlaceholderClick } from '../../utils/utils';
+import { Button } from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
@@ -14,9 +14,9 @@ export const Navbar = () => {
       setIsMenuVisible(window.innerWidth >= 427); // check if it chanes every time the state
     };
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -62,12 +62,12 @@ export const Navbar = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <Button onClick={handlePlaceholderClick} className={styles.button}>
-            Login
-          </Button>
-          <Button onClick={handlePlaceholderClick} className="button-primary">
-            Signup
-          </Button>
+          <Link to="/login">
+            <div className={styles.button}>Login</div>
+          </Link>
+          <Link to="/register">
+            <Button className="button-primary">Signup</Button>
+          </Link>
         </div>
       </div>
     </div>
