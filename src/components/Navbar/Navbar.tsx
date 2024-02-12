@@ -2,10 +2,14 @@ import styles from './Navbar.module.css';
 import { useState, useEffect } from 'react';
 import { handlePlaceholderClick } from '../../utils/utils';
 import { Button } from '../Button/Button';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useUrlShortenerContext } from '../../context/UrlShortenerContext';
 
 export const Navbar = () => {
+  const { setError } = useUrlShortenerContext();
+
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   // This useEffect checks the width of the window to declare if it is mobile or desktop
 
@@ -20,6 +24,21 @@ export const Navbar = () => {
     };
   }, []);
 
+  const handleLoginClick = () => {
+    navigate('/login');
+    setError('');
+  };
+
+  const handleSignupClick = () => {
+    navigate('/register');
+    setError('');
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
+    setError('');
+  };
+
   const handleMenuClick = () => {
     setIsMenuVisible(!isMenuVisible);
   };
@@ -27,13 +46,13 @@ export const Navbar = () => {
   return (
     <div className={`${styles.wrapper} horizontal-padding`}>
       <div className={styles.logoButtonWrapper}>
-        <Link to="/" className={styles.logoLink}>
+        <a onClick={handleLogoClick} className={styles.logoLink}>
           <img
             src="./logo.svg"
             alt="shortly logotype"
             className={styles.logo}
           />
-        </Link>
+        </a>
         <Button
           onClick={() => handleMenuClick()}
           className={styles.menuIconButton}
@@ -62,12 +81,13 @@ export const Navbar = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <Link to="/login">
-            <div className={styles.button}>Login</div>
-          </Link>
-          <Link to="/register">
-            <Button className="button-primary">Signup</Button>
-          </Link>
+          <a className={styles.button} onClick={handleLoginClick}>
+            Login
+          </a>
+
+          <Button className="button-primary" onClick={handleSignupClick}>
+            Signup
+          </Button>
         </div>
       </div>
     </div>

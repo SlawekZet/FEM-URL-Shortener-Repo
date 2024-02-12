@@ -21,8 +21,10 @@ function App() {
       <Routes>
         <Route
           element={
-            <main className="app-wrapper">
-              <Navbar />
+            <div className="app-wrapper">
+              <UrlShortenerProvider>
+                <Navbar />
+              </UrlShortenerProvider>
               <Hero />
               <UrlShortenerProvider>
                 <Shortener />
@@ -34,12 +36,26 @@ function App() {
               </UrlShortenerProvider>
               <CtaSection />
               <Footer />
-            </main>
+            </div>
           }
           path=""
         />
-        <Route element={<LoginPage />} path="/login" />
-        <Route element={<RegisterPage />} path="/register" />
+        <Route
+          element={
+            <UrlShortenerProvider>
+              <LoginPage />
+            </UrlShortenerProvider>
+          }
+          path="/login"
+        />
+        <Route
+          element={
+            <UrlShortenerProvider>
+              <RegisterPage />
+            </UrlShortenerProvider>
+          }
+          path="/register"
+        />
         <Route element={<RedirectPage />} path="/:shortPath" />
         <Route element={<NotFound />} path="404" />
         <Route element={<NotFound />} path="*" />

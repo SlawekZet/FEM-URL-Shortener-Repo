@@ -8,7 +8,7 @@
 .form {
   background-color: var(--darkviolet);
   color: var(--white);
-  padding: 2em 2em 3em 2em;
+  padding: 2em 2em 2em 2em;
   border-radius: 12px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   min-width: 300px;
@@ -50,9 +50,27 @@
   background-color: var(--cyan);
 }
 
+button:hover {
+  background-color: var(--light-cyan);
+}
+
 .signupLink {
   font-size: 0.6rem;
-  padding-top: 1.5em;
+  margin-top: 1.5em;
+}
+
+.serverResponse,
+.error {
+  padding-top: 0.5em;
+  font-size: 0.7rem;
+}
+
+.serverResponse {
+  color: var(--cyan);
+}
+
+.error {
+  color: var(--red);
 }
 
 @media only screen and (max-width: 427px) {

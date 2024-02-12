@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import styles from './LoginRegisterForm.module.css';
 import { useState } from 'react';
+import { useUrlShortenerContext } from '../../context/UrlShortenerContext';
+import { loginUser, registerUser } from '../../utils/utils';
 
 interface LoginRegisterFormProps {
   header: string;
@@ -18,10 +20,13 @@ export const LoginRegisterForm: React.FC<LoginRegisterFormProps> = ({
   linkTarget,
   inputs,
 }) => {
-  const [username, setUsername] = useState<string>();
+  const { error, setError, isLogged, setIsLogged, loggedUser, setLoggedUser } =
+    useUrlShortenerContext();
+  const [username, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [response, setResponse] = useState<string>();
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -43,77 +48,40 @@ export const LoginRegisterForm: React.FC<LoginRegisterFormProps> = ({
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setError('');
+    setResponse('');
     if (inputs.length === 3) {
-      try {
-        const response = await fetch(
-          'https://render-shooort.onrender.com/auth/register',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              username: username,
-              email: email,
-              password: password,
-            }),
-          }
-        );
-        if (!response.ok) {
-          throw new Error('Failed to register a user');
-        }
-        const result = await response.json();
-        setResponse(result.message);
-        console.log(result.message);
-        setUsername('');
-        setPassword('');
-        setEmail('');
-      } catch (error) {
-        console.log('An error has occured', error);
-      }
+      await registerUser(
+        username,
+        email,
+        password,
+        setResponse,
+        setUsername,
+        setPassword,
+        setEmail,
+        setError
+      );
     } else if (inputs.length === 2) {
-      try {
-        const response = await fetch(
-          'https://render-shooort.onrender.com/auth/login',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              username: username,
-              password: password,
-            }),
-          }
-        );
-        if (!response.ok) {
-          throw new Error('Failed to login');
-        }
-
-        const result = await response.json();
-        const token = result.token;
-        const loginResponse = await fetch(
-          'https://render-shooort.onrender.com/user/profile',
-          {
-            method: 'GET',
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (!loginResponse.ok) {
-          throw new Error('Failed to login');
-        }
-        const loginResult = await loginResponse.json();
-        setResponse(loginResult.message);
-        console.log(loginResult.message);
-        setUsername('');
-        setPassword('');
-      } catch (error) {
-        console.log('An error has occured', error);
-      }
+      await loginUser(
+        username,
+        password,
+        setResponse,
+        setIsLogged,
+        setUsername,
+        setPassword,
+        setLoggedUser,
+        setError
+      );
     }
   };
+
+  const handleNavigate = () => {
+    navigate(linkTarget);
+    setError('');
+    setResponse('');
+  };
+
+  console.log(isLogged, loggedUser);
 
   return (
     <>
@@ -144,10 +112,14 @@ export const LoginRegisterForm: React.FC<LoginRegisterFormProps> = ({
           <Button onClick={handleClick} className={styles.button}>
             {buttonName}
           </Button>
-          <div className={styles.signupLink}>
-            <Link to={linkTarget}>
-              <p>{linkName}</p>
-            </Link>
+          <a onClick={handleNavigate} className={styles.signupLink}>
+            {linkName}
+          </a>
+          <div className={styles.serverResponse}>
+            <p>{response}</p>
+          </div>
+          <div className={styles.error}>
+            <p>{error}</p>
           </div>
         </form>
       </div>
