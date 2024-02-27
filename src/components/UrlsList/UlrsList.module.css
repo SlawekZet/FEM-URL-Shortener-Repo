@@ -1,6 +1,7 @@
 .shortenedLinkWrapper {
   display: flex;
   width: 100%;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
   padding: 1em 2em;
@@ -22,7 +23,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-width: 40%;
+  max-width: 100%;
   gap: 1em;
   color: var(--cyan);
 }
@@ -30,9 +31,41 @@
   margin-top: 1em;
 }
 
+.shortUrlInputAndErrorWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortUrlInputWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.shortUrlInput {
+  border: none;
+  height: 1rem;
+  font-size: 1rem;
+  width: 100px;
+}
+
+.shortUrlInput::placeholder {
+  font-size: 1rem;
+}
+
 .buttonDelete {
   border-radius: 5px;
   width: 45px;
+  padding: 0.5em;
+}
+
+.buttonEdit,
+.buttonSave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 45px;
+  height: 39.83px;
   padding: 0.5em;
 }
 
@@ -54,6 +87,17 @@
   background-color: var(--very-dark-blue);
 }
 
+.penIcon,
+.floppyIcon {
+  height: 18px;
+  width: 18px;
+}
+
+.error {
+  color: var(--red);
+  font-size: 0.7rem;
+}
+
 @media only screen and (max-width: 1024px) {
   .orgUrlWrapper {
     width: 45%;
@@ -66,6 +110,7 @@
     padding: 1em 2em;
     background-color: var(--white);
     border-radius: 5px;
+    font-size: 0.8rem;
   }
 
   .orgUrl {
@@ -73,7 +118,7 @@
   }
 
   .shortLinkWrapper {
-    max-width: 55%;
+    max-width: 100%;
     gap: 1em;
     align-items: center;
   }
@@ -100,6 +145,7 @@
     margin-top: 1em;
     background-color: var(--white);
     border-radius: 5px;
+    gap: 0px;
   }
 
   .shortUrl {
@@ -124,7 +170,8 @@
   }
 
   .buttonShortUrl,
-  .buttonDelete {
+  .buttonDelete,
+  .buttonEdit {
     border-radius: 5px;
     width: 30%;
     align-self: center;
@@ -139,6 +186,7 @@
     margin-top: 1em;
     background-color: var(--white);
     border-radius: 5px;
+    gap: 0px;
   }
 
   .orgUrl {
@@ -147,6 +195,7 @@
     max-width: 100%;
     overflow-wrap: break-word;
     padding: 0.7em 1em;
+    text-align: center;
   }
 
   .orgUrlWrapper {
@@ -161,22 +210,15 @@
     width: 100%;
     flex-direction: column;
     font-size: 0.88em;
-    align-items: start;
+    align-items: center;
     gap: 1em;
     padding: 0.7em 1em;
   }
 
   .buttonShortUrl,
-  .buttonDelete {
+  .buttonDelete,
+  .buttonEdit {
     border-radius: 5px;
     width: 100%;
-  }
-
-  .buttonDelete {
-    border-radius: 7px !important;
-    width: 100%;
-  }
-  .buttonDelete {
-    border-radius: 7px !important;
   }
 }

@@ -17,50 +17,34 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          element={
-            <div className="app-wrapper">
-              <UrlShortenerProvider>
+    <UrlShortenerProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            element={
+              <div className="app-wrapper">
                 <Navbar />
-              </UrlShortenerProvider>
-              <Hero />
-              <UrlShortenerProvider>
+                <Hero />
                 <Shortener />
                 <Content>
                   <UrlsList />
                   <HeadingSection />
                   <Benefits />
                 </Content>
-              </UrlShortenerProvider>
-              <CtaSection />
-              <Footer />
-            </div>
-          }
-          path=""
-        />
-        <Route
-          element={
-            <UrlShortenerProvider>
-              <LoginPage />
-            </UrlShortenerProvider>
-          }
-          path="/login"
-        />
-        <Route
-          element={
-            <UrlShortenerProvider>
-              <RegisterPage />
-            </UrlShortenerProvider>
-          }
-          path="/register"
-        />
-        <Route element={<RedirectPage />} path="/:shortPath" />
-        <Route element={<NotFound />} path="404" />
-        <Route element={<NotFound />} path="*" />
-      </Routes>
-    </BrowserRouter>
+                <CtaSection />
+                <Footer />
+              </div>
+            }
+            path=""
+          />
+          <Route element={<LoginPage />} path="/login" />
+          <Route element={<RegisterPage />} path="/register" />
+          <Route element={<RedirectPage />} path="/:shortPath" />
+          <Route element={<NotFound />} path="404" />
+          <Route element={<NotFound />} path="*" />
+        </Routes>
+      </BrowserRouter>
+    </UrlShortenerProvider>
   );
 }
 

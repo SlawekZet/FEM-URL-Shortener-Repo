@@ -1,6 +1,7 @@
-import styles from "./RedirectPage.module.css";
-import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import styles from './RedirectPage.module.css';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { domain } from '../../utils/config';
 
 export const RedirectPage = () => {
   const { shortPath } = useParams();
@@ -11,11 +12,11 @@ export const RedirectPage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://render-shooort.onrender.com/get-org-url?shortenedUrlPath=${shortPath}`,
+          `https://${domain}/get-org-url?shortenedUrlPath=${shortPath}`,
           {
-            method: "GET",
+            method: 'GET',
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           }
         );
@@ -24,11 +25,11 @@ export const RedirectPage = () => {
           const orgUrl = data.originalUrl;
           window.location.replace(orgUrl);
         } else {
-          console.error("Error fetching original URL:", response.statusText);
-          navigate("/404");
+          console.error('Error fetching original URL:', response.statusText);
+          navigate('/404');
         }
       } catch (error) {
-        console.error("Error fetching original URL:", error);
+        console.error('Error fetching original URL:', error);
       } finally {
         setLoading(false);
       }

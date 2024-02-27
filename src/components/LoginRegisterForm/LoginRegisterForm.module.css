@@ -71,6 +71,7 @@ button:hover {
 
 .error {
   color: var(--red);
+  text-align: center;
 }
 
 @media only screen and (max-width: 427px) {

@@ -20,11 +20,11 @@ export const LoginRegisterForm: React.FC<LoginRegisterFormProps> = ({
   linkTarget,
   inputs,
 }) => {
-  const { error, setError, isLogged, setIsLogged, loggedUser, setLoggedUser } =
+  const { error, setError, setIsLogged, setLoggedUser } =
     useUrlShortenerContext();
   const [username, setUsername] = useState<string>('');
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [response, setResponse] = useState<string>();
   const navigate = useNavigate();
 
@@ -70,7 +70,8 @@ export const LoginRegisterForm: React.FC<LoginRegisterFormProps> = ({
         setUsername,
         setPassword,
         setLoggedUser,
-        setError
+        setError,
+        navigate
       );
     }
   };
@@ -80,8 +81,6 @@ export const LoginRegisterForm: React.FC<LoginRegisterFormProps> = ({
     setError('');
     setResponse('');
   };
-
-  console.log(isLogged, loggedUser);
 
   return (
     <>

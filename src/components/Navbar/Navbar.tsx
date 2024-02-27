@@ -4,9 +4,18 @@ import { handlePlaceholderClick } from '../../utils/utils';
 import { Button } from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useUrlShortenerContext } from '../../context/UrlShortenerContext';
+import { logout } from '../../utils/utils';
+import { domain } from '../../utils/config';
 
 export const Navbar = () => {
-  const { setError } = useUrlShortenerContext();
+  const {
+    setError,
+    isLogged,
+    setIsLogged,
+    setLoggedUser,
+    setIsRefreshChecked,
+    isRefreshChecked,
+  } = useUrlShortenerContext();
 
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -24,9 +33,43 @@ export const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isRefreshChecked) return console.log('Already checked');
+    setIsRefreshChecked(true);
+
+    const token = document.cookie.split('=')[1];
+    if (!token) return console.log('No logged user');
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${domain}/user/profile-refresh`, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Failed to login - user not found');
+        }
+        const data = await response.json();
+        setIsLogged(true);
+        setLoggedUser(data.loggedUser);
+      } catch (error) {
+        console.error('An error occured:', error);
+      }
+    };
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleLoginClick = () => {
     navigate('/login');
     setError('');
+  };
+
+  const handleLogoutClick = () => {
+    logout(setLoggedUser, setIsLogged);
+    window.location.reload();
   };
 
   const handleSignupClick = () => {
@@ -81,13 +124,17 @@ export const Navbar = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <a className={styles.button} onClick={handleLoginClick}>
-            Login
+          <a
+            className={styles.button}
+            onClick={isLogged ? handleLogoutClick : handleLoginClick}
+          >
+            {!isLogged ? 'Login' : 'Logout'}
           </a>
-
-          <Button className="button-primary" onClick={handleSignupClick}>
-            Signup
-          </Button>
+          {isLogged ? null : (
+            <Button className="button-primary" onClick={handleSignupClick}>
+              Signup
+            </Button>
+          )}
         </div>
       </div>
     </div>
