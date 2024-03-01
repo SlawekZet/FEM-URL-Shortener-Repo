@@ -12,7 +12,7 @@ export const RedirectPage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://${domain}/get-org-url?shortenedUrlPath=${shortPath}`,
+          `${domain}/get-org-url?shortenedUrlPath=${shortPath}`,
           {
             method: 'GET',
             headers: {

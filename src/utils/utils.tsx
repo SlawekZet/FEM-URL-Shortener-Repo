@@ -147,10 +147,15 @@ export const logout = async (
   setLoggedUser: React.Dispatch<React.SetStateAction<string>>,
   setIsLogged: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
+  const token = document.cookie.split('=')[1];
+  console.log(token);
   try {
     const response = await fetch(`${domain}/auth/logout`, {
       method: 'GET',
       credentials: 'include',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
     if (!response.ok) {
       throw new Error('Failed to logout');
